@@ -13,7 +13,7 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 router.route('/').get((req, res) => {
-  res.send('Hello test Gen')
+  res.send('Hello test Genr8')
 });
 
 router.route('/').post(async (req, res) => {
