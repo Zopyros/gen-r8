@@ -3,6 +3,9 @@ import * as dotenv from 'dotenv';
 import cors from 'cors';
 
 import connectDB from './mongodb/connect.js';
+import postRoutes from './routes/postRoutes.js';
+import genRoutes from './routes/genRoutes.js';
+
 
 
 dotenv.config();
@@ -10,6 +13,9 @@ dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json({limit:'50mb'}));
+
+app.use('/api/v1/post',postRoutes);
+app.use('/api/v1/genr8',genRoutes);  
 
 app.get('/',async(req,res) => {
    res.send('Hello from Gen-R8');
@@ -20,7 +26,7 @@ const startServer =  async() => {
 
    try {
     connectDB(process.env.MONGODB_URL);  
-    app.listen(8080 , () => console.log('Server has started oin port http://localhost:8080'))
+    app.listen(8080 , () => console.log('Server has started in port http://localhost:8080'))
    } catch (error) {
       console.log(error);
       }
