@@ -17,7 +17,7 @@ app.use(express.json({limit:'50mb'}));
 app.use('/api/v1/post',postRoutes);
 app.use('/api/v1/genr8',genRoutes);  
 
-app.get('/',async(req,res) => {
+app.get('/',async (req,res) => {
    res.send('Hello from Gen-R8');
 })
 
